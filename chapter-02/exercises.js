@@ -34,6 +34,8 @@ function triangles(number) {
   for(let i = 1; i <= number; i++){
     
   }
+  //print triangle to console
+  console.log();
 }
 
 
