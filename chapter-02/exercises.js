@@ -25,9 +25,15 @@ LOGS =>
 #####
 
 */
-
-function triangles() {
-  
+//I: function called triangle takes in parameter number
+//O: print to log #; 1 to number; by increment of 1; each time on new line
+//C:
+//E:
+function triangles(number) {
+  //create loop to build triangle; start at 1 end at number; increment by 1
+  for(let i = 1; i <= number; i++){
+    
+  }
 }
 
 
