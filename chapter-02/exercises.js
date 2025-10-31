@@ -111,10 +111,29 @@ LOGS =>
 
 */
 
+//I: function called drawChessboard; intake number that is size of chessboard
+//O: print to console pattern of 'space' + '#' + 'space' if odd; 'space' + '#' + 'space' + '+' if even
+//C: set condition to print row a = ' 'odd' + '#' + 'odd' + '#'
+//E:
+
 function drawChessboard(x) {
+  //create storage string
+  let board = '';
+  //loop through array of 1 to input number
+  for(let i = 0; i < x; i++){ //loop for row
+    for(let j = 0; j < x; j++){ //loop for column
+      //set condition when to print '#', when to print ' ', when to break to new line '\n'
+      if((i + j) % 2 === 0){
+        board += ' ';
+      } else {
+        board += '#';
+      }
+    }
+    board += '\n';
+  }
+  console.log(board);
+  }
 
-
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
