@@ -30,12 +30,13 @@ LOGS =>
 //C:
 //E:
 function triangles(number) {
+  let row = '';
   //create loop to build triangle; start at 1 end at number; increment by 1
   for(let i = 1; i <= number; i++){
-    
+    //print triangle to console
+    console.log(row += '#');
   }
-  //print triangle to console
-  console.log();
+  
 }
 
 
