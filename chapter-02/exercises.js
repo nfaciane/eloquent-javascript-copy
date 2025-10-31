@@ -56,7 +56,28 @@ on the number:
   - if the number is not divisible by 3 or 5, log the number
 */
 
+//I: function called fizzBuzz; intake numbers start and end
+//O: if number divisible by 3; print 'fizz'; 
+//C:
+//E:
+
 function fizzBuzz(start, end) {
+  //create for loop with parameters start and stop
+  for(let i = start; i <= end; i++){
+    //if number is divisible by 3 and 5; print 'fizzbuzz'
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log('fizzbuzz');
+       //else-if number divisible by 3; print 'fizz'
+    } else if(i % 3 === 0){
+      console.log('fizz'); 
+      //else-if number divisible by 5; print 'buzz'
+    } else if(i % 5 === 0){
+      console.log('buzz');
+    } else{
+        console.log(i);
+    }
+    
+  }
   
 }
 
