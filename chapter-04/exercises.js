@@ -133,16 +133,62 @@ function prepend(value, list) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, n) {
+//Base Case
+  //condition1
+  if(list === null){
+    return undefined;
+  }
+  //condition2
+  if(n === 0){
+    return list.value;
+  }
+//RECURSION
+  //condition
+  return nth(list.rest, n - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(a, b) {
+  // Base Case: same value
+  if(a === b){
+    return true;
+  }
+  
+  // Base Case: null check
+  if(a === null || b === null){
+    return false;
+  }
+  if(typeof a !== 'object' || typeof b !== 'object'){
+    return false;
+  }
+  
+  // Get keys
+  var keysA = Object.keys(a);
+  var keysB = Object.keys(b);
+  
+  // Base Case: different number of keys
+  if(keysA.length !== keysB.length){
+    return false;
+  }
+  
+  // RECURSION: compare each value
+  for(var i = 0; i < keysA.length; i++){
+    var key = keysA[i];
+    
+    if(!keysB.includes(key)){
+      return false;
+    }
+    
+    if(!deepEqual(a[key], b[key])){
+      return false;
+    }
+  }
+  
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
