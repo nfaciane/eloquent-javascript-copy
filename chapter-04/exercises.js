@@ -2,7 +2,44 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end) {
+function range(start, end, increment, result) {
+  if(result === undefined){
+    result = [];
+  }
+  
+  if(increment === undefined){
+    if(start < end){
+      increment = 1;
+    } else if(start > end){
+      increment = -1;
+    }
+  }
+  
+  if(start === end && result.length === 0){
+    return result;
+  }
+  
+  if(increment < 0 && start < end){
+    return result;
+  }
+  if(increment > 0 && start > end){
+    return result;
+  }
+  
+  result.push(start);
+  
+  if(start === end){
+    return result;
+  }
+  
+  if(increment > 0 && start + increment > end){
+    return result;
+  }
+  if(increment < 0 && start + increment < end){
+    return result;
+  }
+  
+  return range(start + increment, end, increment, result);
 
 }
 
@@ -10,7 +47,15 @@ function range(start, end) {
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(array) {
+  //Base Case
+    //condition
+    if(array.length === 0){
+      return 0;
+    }
+  //RECURSION
+    //condition
+    return array[0] + sum(array.slice(1));
 
 }
 
@@ -18,24 +63,48 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+ 
+// Base Case
+if(array.length === 0){
+  return [];
+}
 
+// RECURSION: last element + reverse the rest (excluding last)
+return [array[array.length - 1]].concat(reverseArray(array.slice(0, array.length - 1)));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array, start = 0, end = array.length - 1) {
+ 
+//Base Case
+  //condition
+  if(start >= end){
+    return array;
+  }
+  //RECURSION
+    //condition
+    [array[start], array[end]] = [array[end], array[start]];
+    return reverseArrayInPlace(array, start + 1, end - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+//Base Case
+  //condition
+  if(array.length === 0){
+    return null;
+  }
+  return {
+    value: array[0],
+    rest: arrayToList(array.slice(1))
+  };
 }
 
 ////////////////////////////////////////////////////////////////////////////////
